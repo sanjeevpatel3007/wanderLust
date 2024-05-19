@@ -1,0 +1,39 @@
+/* edit page  */
+
+    /* Custom styles */
+    body {
+        padding: 20px;
+    }
+    .Editheading{
+        text-align: center;
+        padding: 10px;
+    }
+    /* Center align the form */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    /* Adjust spacing */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    #editImageview{
+        width: 100%;
+         height: 300px;      
+    }
+
+
+
+
+
+    
+
+    /* new listing page  */
+      
+  /* Custom styles */
+  .form-group {
+      margin-bottom: 1.5rem;
+  }
+  .addlisting{
+      padding-top: 20px;
+  }

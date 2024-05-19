@@ -1,0 +1,23 @@
+
+<% layout ("/layouts/boilerplate" ) %>
+
+
+<%- include('./partials/navbar.ejs') %>
+
+<body>
+    <div class="row mt-5 mb-5">
+
+        <div class="alert alert-danger col-6 offset-3" role="alert">
+            <p>Something went wrong</p>
+          <h4 class="alert-heading"> <%= err.message %></h4>
+          <h4 class="alert-heading"> <%= err %></h4>
+          <!-- <p><%=  err.stack %></p> -->
+        </div>
+
+    </div>
+</body>
+    
+
+
+
+    <%- include('./partials/footer.ejs') %>

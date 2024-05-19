@@ -1,0 +1,83 @@
+<% layout ("/layouts/boilerplate" ) %>
+  
+
+
+
+<body>
+    <%- include('../partials/navbar.ejs') %>
+<div class="container">
+    <h1 class="addlisting">Add Listing</h1>
+    <!--  -->
+    <form action="/listings" method="POST" class=" needs-validation" enctype="multipart/form-data"  novalidate>
+        <div class="row"> 
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="title" name="listing[title]" placeholder="Enter title" required>
+                    <div class="valid-feedback">
+                        Good title...!
+                      </div>
+                      <div class="invalid-feedback">
+                        Please enter valid title
+
+                      </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" id="description" name="listing[description]" placeholder="Enter description" required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter valid description 
+                        </div>
+                        <div class="valid-feedback">
+                            Good description...!
+                          </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="text" class="form-control" id="price" name="listing[price]" placeholder="Enter price" required>
+                    <div class="invalid-feedback">
+                        Please enter valid Price
+                        </div>
+                        <div class="valid-feedback">
+                           Valid Price
+                          </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="location" class="form-label">Location:</label>
+                    <input type="text" class="form-control" id="location" name="listing[location]" placeholder="Enter location" required>
+                    <div class="invalid-feedback">
+                        Please enter valid Location.
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="form-label">Country:</label>
+                    <input type="text" class="form-control" id="country" name="listing[country]" placeholder="Enter country" required>
+                    <div class="invalid-feedback">
+                        Please enter valid country.
+                        </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" id="image" name="listing[image]" >
+                </div>
+
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+   
+
+</script>
+
+

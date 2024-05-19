@@ -1,0 +1,169 @@
+<% layout ("/layouts/boilerplate" ) %>
+
+<style>
+  .listing-card {
+  display: block;
+}
+
+.listing-card.hidden {
+  display: none;
+}
+
+</style>
+  <body>
+
+    <%- include('../partials/navbar.ejs') %>
+      <%- include('../partials/flash.ejs') %>
+
+<div class="indexMain">
+
+      <div class="container ">
+          <div class="row my-4">
+              <div class="col-lg-8">
+                   <div id="filters">
+                <div class="filter">
+                  <div><i class="fa-solid fa-fire"></i></div>
+                  <p>Trending</p>
+                </div>
+
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-bed"></i></div>
+                  <p>Rooms</p>
+                </div>
+
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-city"></i></div>
+                  <p>Iconic Cities</p>
+                </div>
+
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-mountain-city"></i></div>
+                  <p>Mountains</p>
+                </div>
+
+
+                <div class="filter">
+                  <div><i class="fa-brands fa-fort-awesome"></i></div>
+                  <p>Casties</p>
+                </div>
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-fire"></i></div>
+                  <p>Amazing Pools</p>
+                </div>
+
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-person-swimming"></i></div>
+                  <p>Camping</p>
+                </div>
+
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-cow"></i></div>
+                  <p>Farms</p>
+                </div>
+
+
+
+                <div class="filter">
+                  <div><i class="fa-solid fa-bed"></i></div>
+                  <p>Enjoy</p>
+                </div>
+
+
+                   </div>
+              </div>
+            <div class="col-lg-4">
+              <div class="tax-toggle ">
+                <div class="form-check-reverse form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+  
+                  <label for="flexSwitchCheckDefault" class="form-check-label">Display total after Taxes</label>
+                </div>
+                </div>
+
+            </div>
+             
+
+          </div>
+      </div>
+
+
+      <div class="search-container d-md-none">
+        <input type="text" id="searchInput" placeholder="Search by title...">
+      </div>
+      
+
+
+
+        <ul class="list-unstyled d-flex flex-wrap">
+          <% for(let listing of allListings) { %>
+            <li class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 listing-card">
+              <a href="/listings/<%= listing._id %>">
+                <div class="card h-96  listing-card ">
+                  <img id="listingImg" src="<%= listing.image.url %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= listing.title %>
+                    </h5>
+                    <p class="card-text">Price: &#8377;<%= listing.price.toLocaleString("en-IN") %> /night
+                        <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
+                    </p>
+                    <div class="explore">
+                      <p class="card-text">
+                        <%= listing.country %>
+                      </p>
+                      <p class="explorebtn">Explore</p>
+
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <% } %>
+        </ul>
+
+        
+      </div>
+
+        <%- include('../partials/footer.ejs') %>
+
+         <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.listing-card');
+
+    searchInput.addEventListener('input', function () {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      cards.forEach(function (card) {
+        const title = card.querySelector('.card-title').textContent.trim().toLowerCase();
+        if (title.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+
+          // togglebuton for gst 
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for (info of taxInfo) {
+        if (info.style.display != "inline") {
+          info.style.display = "inline";
+        }
+        else {
+          info.style.display = "none"
+        }
+      }
+    })
+
+         </script>
